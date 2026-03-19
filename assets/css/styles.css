@@ -530,8 +530,34 @@ p, li { color: var(--muted); }
 }
 
 @media (max-width: 760px) {
-  body { padding-top: 108px; }
-  .nav { align-items: flex-start; }
+  body {
+    padding-top: 140px;
+    overflow-x: hidden;
+  }
+  .nav {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 12px 14px;
+    gap: 10px;
+  }
+  .brand {
+    font-size: 1.05rem;
+  }
+  .nav-links {
+    width: 100%;
+    gap: 8px;
+    justify-content: flex-start;
+  }
+  .nav-links a {
+    padding: 7px 10px;
+    font-size: .92rem;
+  }
+  .hero,
+  .subpage-header,
+  .section {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
   .hero-inner,
   .today,
   .card-grid,
@@ -540,6 +566,52 @@ p, li { color: var(--muted); }
   .gallery-grid,
   .fact-grid {
     grid-template-columns: 1fr;
+  }
+  .hero-inner {
+    min-height: auto;
+    gap: 18px;
+    padding: 20px 0 10px;
+  }
+  h1 {
+    font-size: clamp(2rem, 9vw, 2.8rem);
+    line-height: 1.18;
+  }
+  h2 {
+    font-size: clamp(1.45rem, 6vw, 2rem);
+  }
+  .hero-copy p,
+  p,
+  li {
+    font-size: .98rem;
+  }
+  .hero-actions {
+    gap: 10px;
+  }
+  .btn {
+    width: 100%;
+  }
+  .dino-card,
+  .species-grid article,
+  .timeline,
+  .era-card {
+    padding: 16px;
+  }
+  .data-list li {
+    gap: 10px;
+    font-size: .95rem;
+  }
+  .gallery-grid img {
+    height: 220px;
+  }
+  .slider-arrow {
+    width: 42px;
+    height: 42px;
+    font-size: 1.5rem;
+  }
+  .slider-arrow.prev { left: 10px; }
+  .slider-arrow.next { right: 10px; }
+  .slide-overlay {
+    padding: 18px 16px 42px;
   }
   .vertical-timeline::before {
     left: 18px;
@@ -572,5 +644,7 @@ p, li { color: var(--muted); }
   .era-row .side { display: none; }
   .hero-panel img,
   .today-image img,
-  .dino-slider { min-height: 400px; }
+  .dino-slider {
+    min-height: 280px;
+  }
 }
