@@ -1,4 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
+  const nav = document.querySelector('.nav');
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener('click', () => {
+      const open = nav.classList.toggle('menu-open');
+      menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+
+    navLinks.addEventListener('click', (e) => {
+      if (e.target.closest('a') && nav.classList.contains('menu-open')) {
+        nav.classList.remove('menu-open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
   const slides = Array.from(document.querySelectorAll('.hero-slide'));
   const dotsWrap = document.querySelector('.slider-dots');
   const prev = document.querySelector('[data-slider="prev"]');

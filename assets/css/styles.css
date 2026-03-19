@@ -71,10 +71,30 @@ html[dir="rtl"] button {
   border-bottom: 1px solid var(--line);
 }
 
+.nav-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+}
+
 .brand {
   font-size: 1.25rem;
   font-weight: 700;
   letter-spacing: .03em;
+}
+
+.menu-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,0.04);
+  color: var(--text);
+  font-size: 1.4rem;
+  cursor: pointer;
 }
 
 .nav-links {
@@ -531,26 +551,39 @@ p, li { color: var(--muted); }
 
 @media (max-width: 760px) {
   body {
-    padding-top: 140px;
+    padding-top: 86px;
     overflow-x: hidden;
   }
   .nav {
-    align-items: flex-start;
+    align-items: stretch;
     flex-direction: column;
-    padding: 12px 14px;
-    gap: 10px;
+    padding: 10px 14px;
+    gap: 8px;
   }
   .brand {
     font-size: 1.05rem;
   }
+  .menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
   .nav-links {
+    display: none;
     width: 100%;
     gap: 8px;
     justify-content: flex-start;
+    flex-direction: column;
+    padding-top: 4px;
+  }
+  .nav.menu-open .nav-links {
+    display: flex;
   }
   .nav-links a {
-    padding: 7px 10px;
-    font-size: .92rem;
+    padding: 10px 12px;
+    font-size: .95rem;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.03);
   }
   .hero,
   .subpage-header,
@@ -613,26 +646,39 @@ p, li { color: var(--muted); }
   .slide-overlay {
     padding: 18px 16px 42px;
   }
+  .vertical-timeline {
+    margin-top: 18px;
+    padding-right: 0;
+  }
   .vertical-timeline::before {
-    left: 18px;
+    right: 11px;
+    left: auto;
+    width: 3px;
     transform: none;
   }
   .era-row {
-    grid-template-columns: 36px 1fr;
-    gap: 14px;
+    grid-template-columns: 28px 1fr;
+    gap: 12px;
+    margin: 18px 0;
+    align-items: start;
   }
   .year-label {
     position: static;
     transform: none;
     margin: 0 0 10px 0;
     display: inline-block;
+    font-size: .8rem;
   }
   .era-top {
-    grid-template-columns: 72px 1fr;
+    grid-template-columns: 64px 1fr;
+    gap: 12px;
   }
   .era-thumb {
-    width: 72px;
-    height: 72px;
+    width: 64px;
+    height: 64px;
+  }
+  .era-card {
+    border-radius: 18px;
   }
   .era-row.left .era-card,
   .era-row.right .era-card {
@@ -640,6 +686,14 @@ p, li { color: var(--muted); }
   }
   .era-node {
     grid-column: 1;
+    width: 16px;
+    height: 16px;
+    margin-top: 18px;
+  }
+  .era-row.left .year-label,
+  .era-row.right .year-label {
+    left: auto;
+    right: auto;
   }
   .era-row .side { display: none; }
   .hero-panel img,
